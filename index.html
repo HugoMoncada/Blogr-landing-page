@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | [Blogr]</title>
+  <link rel="stylesheet" href="/styles/styles.css">
+  <script src="/js/app.js" defer></script>
+</head>
+<body>
+
+  <header>
+    <img class="logo" src="/images/logo.svg" alt="Blogr-logo">
+    <nav>
+      <div class="nav__menu">
+
+        <div class="dropdown" >
+          <button id="product__dropdown_button">Product <span class="arrow"></span></button>
+          <div class="dropdown__content" id="product__dropdown_content">
+            <a href="#">Overview</a>
+            <a href="#">Pricing</a>
+            <a href="#">Marketplace</a>
+            <a href="#">Features</a>
+            <a href="#">Integrations</a>
+          </div>
+        </div>
+    
+        <div class="dropdown">
+          <button id="company__dropdown_button">Company <span class="arrow"></span></button>
+          <div class="dropdown__content" id="company__dropdown_content">
+            <a href="#">About</a>
+            <a href="#">Team</a>
+            <a href="#">Blog</a>
+            <a href="#">Careers</a>
+          </div>
+        </div>
+        
+        <div class="dropdown">
+          <button id="content__dropdown_button">Connect <span class="arrow"></span></button>
+          <div class="dropdown__content" id="content__dropdown_content">
+            <a href="#">Contact</a>
+            <a href="#">Newsletter</a>
+            <a href="#">LinkedIn</a>
+          </div>
+        </div>
+       
+      </div>
+      <hr>
+      <div class="nav__buttons">
+        <button id="login">Login</button>
+        <button id="sign_up">Sign Up</button>
+      </div>
+    </nav>
+    <img class="hamburguer" src="/images/icon-hamburger.svg" alt="hamburguer-icon">
+  </header>
+
+  <div class="cta">
+    <h1 class="cta__title">A modern publishing platform</h1>
+    <h3 class="cta__subtitle">Grow your audience and build your online brand</h3>
+    <div class="cta__buttons">
+      <button class="cta__button active" id="start_free">Start for Free</button>
+      <button class="cta__button" id="learn_more">Learn More</button>
+    </div>
+  </div>
+
+  <div class="design">
+    <h2 class="design__title">Designed for the future</h2>
+    <div class="content">
+    <img class="content__img" src="/images/illustration-editor-mobile.svg" alt="illustration">
+    <div class="content__card">
+      <h3 class="content__title">Introducing an extensible editor</h3>
+      <p class="content__text">
+        Blogr features an exceedingly intuitive interface which lets you focus on one thing: creating content. 
+        The editor supports management of multiple blogs and allows easy manipulation of embeds such as images, 
+        videos, and Markdown. Extensibility with plugins and themes provide easy ways to add functionality or 
+        change the looks of a blog.
+      </p>
+      <h3 class="content__title">Robust content management</h3>
+      <p class="content__text">
+        Flexible content management enables users to easily move through posts. Increase the usability of your blog 
+        by adding customized categories, sections, format, or flow. With this functionality, you're in full control.
+      </p>
+    </div>
+    </div>
+  </div>
+
+  <div class="state">
+    <img class="state__image" src="/images/illustration-phones.svg" alt="">
+    <div class="state__content">
+      <h2 class="state__title">State of the Art Infrastructure</h2>
+      <p class="state__text">
+        With reliability and speed in mind, worldwide data centers provide the backbone for ultra-fast connectivity. 
+        This ensures your site will load instantly, no matter where your readers are, keeping your site competitive.
+       </p>
+    </div>
+  </div>
+
+
+  <div class="price">
+    <div class="content">
+      <img class="content__img" src="/images/illustration-laptop-mobile.svg" alt="illustration">
+       <div class="content__card">
+          <h3 class="content__title">Free, open, simple</h3>
+          <p class="content__text">
+            Blogr is a free and open source application backed by a large community of helpful developers. It supports 
+           features such as code syntax highlighting, RSS feeds, social media integration, third-party commenting tools, 
+            and works seamlessly with Google Analytics. The architecture is clean and is relatively easy to learn.
+          </p>
+          <h3 class="content__title">Powerful tooling</h3>
+          <p class="content__text">
+            Batteries included. We built a simple and straightforward CLI tool that makes customization and deployment a breeze, but
+            capable of producing even the most complicated sites.
+          </p>
+        </div>
+    </div>
+  </div>
+
+
+  <footer>
+    <img class="footer_img" src="/images/logo.svg" alt="logo-icon">
+    
+    <div class="footer__card">
+      <h3 class="footer__card_title">Product</h3>
+      <a href="#" class="footer__card_product">Overview</a>
+      <a href="#" class="footer__card_product">Pricing</a>
+      <a href="#" class="footer__card_product">Marketplace</a>
+      <a href="#" class="footer__card_product">Features</a>
+      <a href="#" class="footer__card_product">Integrations</a>
+    </div>
+
+       
+    <div class="footer__card">
+      <h3 class="footer__card_title">Company</h3>
+      <a href="#" class="footer__card_product">About</a>
+      <a href="#" class="footer__card_product">Team</a>
+      <a href="#" class="footer__card_product">Blog</a>
+      <a href="#" class="footer__card_product">Careers</a>
+    </div>
+
+    <div class="footer__card">
+      <h3 class="footer__card_title">Connect</h3>
+      <a href="#" class="footer__card_product">Contact</a>
+      <a href="#" class="footer__card_product">Newsletter</a>
+      <a href="#" class="footer__card_product">LinkedIn</a>
+    </div>
+
+  </footer>
+
+
+</body>
+</html>

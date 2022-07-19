@@ -1,0 +1,724 @@
+/* REad https://stackoverflow.com/questions/28279989/multiple-font-weights-one-font-face-query */
+/* https://stackoverflow.com/questions/7018535/use-multiple-custom-fonts-using-font-face */
+/* https://stackoverflow.com/questions/54753575/how-to-let-static-css-files-access-other-files-such-as-eot-ttf-woff-etc */
+/* https://css-tricks.com/positioning-offset-background-images/ */
+/* Work with background gradiend + background image */
+/* https://stackoverflow.com/questions/20549123/css-background-image-with-background-gradient */
+
+:root{
+
+    /* ### Primary */
+
+    --CTA-text: hsl(356, 100%, 66%);
+    --CTA-hover-background: hsl(355, 100%, 74%);
+    --Headings: hsl(208, 49%, 24%);
+
+    /* ### Neutral */
+
+    --White: hsl(0, 0%, 100%);
+    --Footer-text: hsl(240, 2%, 79%);
+    --Body-copy: hsl(207, 13%, 34%);
+    --Footer-background: hsl(240, 10%, 16%);
+
+    /* ### Gradient */
+
+    /* Background gradient - Intro/CTA mobile nav: */
+    --Very-light-red: hsl(13, 100%, 72%);
+    --Light-red: hsl(353, 100%, 62%);
+
+    /* Background gradient - body: */
+    --Very-dark-gray-blue: hsl(237, 17%, 21%);
+    --Very-dark-desaturated-blue: hsl(237, 23%, 32%);
+
+}
+
+@font-face {
+    font-family: Overpass;
+    src: url("../static/Overpass-Light.ttf") format("truetype");
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Overpass;
+    src: url("../static/Overpass-SemiBold.ttf") format("truetype");
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Ubuntu;
+    src: url("../static/Ubuntu-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Ubuntu;
+    src: url("../static/Ubuntu-Medium.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Ubuntu;
+    src: url("../static/Ubuntu-Bold.ttf") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+html, body{
+    margin: 0;
+    padding: 0;
+    font-size: 60.5%;
+    background-color: #FAFAFA;
+    overflow-x: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+/********* MOBILE FIRST **********/
+
+
+
+/* ====== Header Styles ===== */
+
+header{
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 55px 0;
+}
+
+nav{
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background-color: white;
+    top: 125px;
+    left: 0;
+    right: -1000;
+    width: 100%;
+    margin: 0 auto;
+    padding: 35px 24px;
+    font-family: Ubuntu;
+    font-weight: 400;
+    border-radius: 5px;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    -webkit-box-shadow: 0px 4px 25px -8px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 4px 25px -8px rgba(0,0,0,0.75);
+    box-shadow: 0px 4px 25px -8px rgba(0,0,0,0.75);
+}
+
+.nav-active{
+    display: flex;
+    right: 0; 
+}
+
+nav button{
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    font-size: 1.8rem;
+    font-family: "Overpass";
+    color: #25364A;
+    font-weight: 600;
+}
+
+.nav__menu{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    z-index: 0;
+}
+
+/* Specific margin for buttons before hr  */
+.nav__menu button{
+    margin-bottom: 37px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav__menu button:hover{
+    cursor: pointer;
+}
+
+.arrow{
+    background-image: url("/images/icon-arrow-dark.svg");
+    margin-left: 5px;
+    width: 10px;
+    height: 10px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.arrow-active{
+    transition: all 0.1s;
+    transform: rotate(180deg);
+}
+
+.dropdown{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.dropdown__content a{
+    display: block;
+    text-align: center;
+    margin-bottom: 22px;
+    text-decoration: none;
+    color: #7A838C;
+}
+
+.dropdown__content a:nth-child(3){
+    margin-bottom: 0;
+}
+
+.dropdown__content{
+    position: absolute; 
+    display: none; 
+    font-size: 1.6rem;
+    background-color: #EFEFF1;
+    width: 100%;
+    z-index: 1;
+    padding: 25px 0;
+    border-radius: 5px;
+    font-family: "Overpass";
+    font-weight: 600;
+}
+
+.dropdown-active {
+    position: relative;
+    display: block;
+    top: -20px;
+}
+
+hr{
+    border: .1px solid lightgray;
+    width: 100%;
+    margin-bottom: 27px;
+}
+
+.nav__buttons{
+    display: flex;
+    flex-direction: column;
+}
+
+.nav__buttons button:nth-child(1){
+    margin-bottom: 5px;
+}
+
+#login, #sign_up{
+    padding: 13px 35px;
+    border-radius: 50000px;
+}
+
+#sign_up{
+    background: linear-gradient(158deg, rgba(255,140,113,1) 0%, rgba(255,61,84,1) 100%);
+    color: white;
+}
+
+#login:hover, #sign_up:hover, #learn_more:hover, #start_free:hover{
+    cursor: pointer;
+    background: none;
+    background-color: var(--Very-light-red);
+    color: white;
+    border: none;
+}
+
+.hamburguer{
+    margin-left: auto;
+}
+/* ====== */
+
+
+/* ====== CTA Styles ===== */
+
+.cta{
+    height: 600px;
+    width: 100%;
+    background: 
+    url("/images/bg-pattern-intro-mobile.svg") left -350px bottom -450px no-repeat,  
+    linear-gradient(158deg, rgba(255,140,113,1) 0%, rgba(255,61,84,1) 100%) !important;
+    border-bottom-left-radius: 100px;
+    background-size: 1320px;
+    background-position: left -220px bottom -450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: "Overpass";
+}
+
+.cta__title{
+    font-size: 3.8rem;
+    color: white;
+    text-align: center;
+    margin-bottom: 0;
+    padding: 0 16px;
+}
+
+.cta__subtitle{
+    font-size: 1.9rem;
+    text-align: center;
+    color: #FEDACB;
+    margin-bottom: 52px;
+    font-weight: 300;
+    padding: 0 20px;
+}
+
+.cta__buttons{
+    display: flex;
+    font-family: "Ubuntu";
+}
+
+.cta__button{
+    border: 1px solid white;
+    background-color: transparent;
+    padding: 15px 17px;
+    border-radius: 50000px;
+    color: white;
+    font-weight: 600;
+}
+
+.cta__buttons .cta__button.active{
+    margin-right: 20px;
+}
+
+.active {
+    background-color: white;
+    color: var(--CTA-text);
+}
+
+/* ====== */
+
+
+/* ====== Design Styles ===== */
+.design{
+    padding: 100px 0;
+    font-family: "Overpass";
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-content: center;
+    margin-bottom: 100px;
+}
+
+.content__img{
+    display: block;
+    margin: 0 auto;
+    width: 90%;
+}
+
+.design__title{
+    text-align: center;
+    font-size: 2.8rem;
+    font-weight: 600;
+    color: #2A4152;
+}
+
+.content__card{
+    text-align: center;
+    padding: 0 40px;
+}
+
+.content__title{
+    font-size: 2.6rem;
+    padding: 0 40px;
+    color: #2A4152;
+}
+
+.content__text{
+    font-size: 1.8rem;
+    color: #898A8C;
+    line-height: 25px;
+}
+
+
+/* ====== */
+
+
+/* ====== State Styles ===== */
+
+.state{
+    background: 
+    url("/images/bg-pattern-circles.svg") top -250px center no-repeat,
+    linear-gradient(158deg, rgba(48,49,69,1) 0%, rgba(61,64,99,1) 100%);
+    background-size: 160%;
+    padding: 80px 24px;
+    padding-top: 0;
+    border-bottom-left-radius: 100px;
+    border-top-right-radius: 100px;
+}
+
+.state__image{
+    width: 100%;
+    margin-top: -145px;
+}
+
+.state__title{
+    font-size: 3.8rem;
+    color: white;
+    text-align: center;
+    margin-top: 0;
+
+}
+
+.state__text{
+    font-size: 1.9rem;
+    color: #B5B6BA;
+    text-align: center;
+    line-height: 25px;
+}
+
+
+/* ====== */
+
+
+/* ====== Footer Styles ===== */
+footer{
+    background-color: #24242c;
+    padding: 74px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: "Ubuntu";
+    border-top-right-radius: 110px;
+}
+
+.footer_img{
+    width: 20%;
+    margin-bottom: 50px;
+}
+
+.footer__card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.footer__card_title{
+    font-size: 1.7rem ;
+    color: rgb(238, 238, 238);
+    margin-bottom: 30px;
+}
+
+.footer__card_product{
+    text-decoration: none;
+    color: #B5B6BA;
+    font-size: 1.6rem;
+    margin-bottom: 9px;
+}
+
+
+
+
+/* Extra large devices (large laptops and desktops, 1400px and up) */
+@media only screen and (min-width: 1000px) {
+
+    /* =========== Header - CTA styles =========== */
+
+    nav{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        background-color: transparent;
+        top: 0;
+        width: 100%;
+        margin: 0 auto;
+        padding: 35px 24px;
+        box-shadow: none;
+    }
+
+    .logo{
+        margin-right: 50px;
+    }
+
+    .nav__menu{
+        flex-direction: row;
+        align-items: center;
+    }
+
+    /* Specific margin for buttons before hr  */
+    .nav__menu button{
+        margin-bottom: 0;
+        margin-right: 35px;
+    }
+
+    nav button{
+        color: white;
+    }
+
+    hr{
+       display: none;
+    }
+    
+    .nav__buttons{
+        display: flex;
+        flex-direction: row;
+    }
+        
+    .arrow{
+        background-image: url("/images/icon-arrow-light.svg");
+    }
+  
+    .hamburguer{
+        display: none;
+    }
+
+    .dropdown-active {
+        position: fixed;
+        display: block;
+        top: auto;
+        width: 8%;
+        margin-top: 30px;
+    }
+
+    .dropdown__content {
+        padding: 25px 20px;
+    }
+
+    .dropdown__content a {
+        display: block;
+        text-align: left;
+        margin-bottom: 22px;
+        color: #7A838C;
+    }
+
+    .nav__buttons{
+        flex-direction: row;
+        min-width: 300px;
+        justify-content: end;
+    }
+
+    .nav__buttons button:nth-child(1){
+        margin-bottom: 0;
+        margin-right: 20px;
+    }
+
+    #sign_up{
+        background: none;
+        background-color: white;
+        color: var(--CTA-text);
+    }
+   
+
+    /* ======================= */
+    .cta{
+        background: url("/images/bg-pattern-intro-desktop.svg") left -310px bottom -1250px no-repeat,  
+        linear-gradient(158deg, rgba(255,140,113,1) 0%, rgba(255,61,84,1) 100%) !important;
+    }
+
+    .cta__title{
+        font-size: 6.1rem;
+        color: white;
+        text-align: center;
+        margin-bottom: 0;
+        padding: 0 16px;
+    }
+
+    .cta__subtitle{
+        font-size: 2rem;
+    }
+
+
+    /* =========Design styles============== */
+
+    .design{
+        padding: 160px 0;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 0px;
+        background: url("/images/illustration-editor-desktop.svg") no-repeat;
+        background-size: 64%;
+        background-position: calc(100% + 49%);
+    }
+
+    .content{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto auto;
+        
+    }
+    
+    .content__img{
+        display: none;
+    }
+    
+    .design__title{
+        font-size: 3.8rem;
+        margin-bottom: 88px;
+    }
+    
+    .content__card{
+        text-align: left;
+        padding: 0 0;
+        padding-left: 165px;        
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 1;
+        grid-row-end: 2;
+    }
+    
+    .content__title{
+        font-size: 2.9rem;
+        padding: 0;
+        color: #2A4152;
+    }
+    
+    .content__text{
+        font-size: 1.9rem;
+        color: #898A8C;
+        line-height: 30px;
+        margin-bottom: 85px;
+    }
+
+
+    /* =========State styles============== */
+    .state{
+        background: 
+        url("/images/bg-pattern-circles.svg") no-repeat;
+        background-color: #353750;
+        background-size: 100%;
+        background-position: top -900px left -500px;
+        padding: 0px 80px;
+        padding-top: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 400px;
+    }
+    
+    .state__content{
+        padding: 0 90px;
+    }
+
+    .state__image{
+        width: 115%;
+        margin-top: 0px;
+    }
+    
+    .state__title{
+        font-size: 3.9rem;
+        text-align: left;
+        margin-top: 0;
+    
+    }
+    
+    .state__text{
+        font-size: 1.9rem;
+        text-align: left;
+    }
+
+
+
+    /* ======= */
+
+
+    /* =========Price styles============== */
+
+    .price{
+        padding: 160px 0;
+        margin-bottom: 0px;
+        background: url("/images/illustration-laptop-desktop.svg") no-repeat;
+        background-size: 64%;
+        background-position: calc(-100%  + 49%);
+    }
+
+    .price .content__card{
+        text-align: left;
+        padding: 0 0;
+        padding: 0 110px;       
+        grid-column-start: 2;
+        grid-column-end: 4;
+        grid-row-start: 1;
+        grid-row-end: 2;
+    }
+
+    /* ======= */
+
+
+    /* =========Footer styles============== */
+
+    footer{
+        background-color: #24242c;
+        padding: 74px 0;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-evenly;
+    }
+    
+    .footer_img{
+        width: 10%;
+        margin-bottom: 0;
+    }
+    
+    .footer__card{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 0px;
+    }
+    
+    .footer__card_title{
+        font-size: 1.8rem ;
+    }
+    
+    .footer__card_product{
+        font-size: 1.7rem;
+    }
+
+
+    /* ======= */
+    
+    
+    
+
+} 
+
+
+@media only screen and (min-width: 1600px) {
+
+    .design{
+        background: url("/images/illustration-editor-desktop.svg") no-repeat;
+        background-size: 48%;
+        background-position: calc(100% + 27%);
+        padding: 120px 110px;
+    }
+
+
+    .state__image{
+        width: 90%;
+        margin-top: 0px;
+        padding: 0 120px;
+    }
+
+
+    .price{
+        background-size: 48%;
+        background-position: calc(-100%  + 70%);
+        padding: 120px 110px;
+    }
+}
