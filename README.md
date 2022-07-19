@@ -31,8 +31,8 @@ Users should be able to:
 
 ### Links
 
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Live Site URL: [Watch it live here](https://blogr-landing-page-lemon.vercel.app/)
+- Solution URL: [Compare design vs final version here](https://www.frontendmentor.io/solutions/responsive-htmlcssjs-blogr-landing-page-solution-i8_IBzsGPM)
 
 ## My process
 
